@@ -27,23 +27,23 @@ const content = {
       eyebrow: "启动序列",
       title: "用中英双语展示智能系统、工程项目与研究经历。",
       description:
-        "这个页面现在支持中文和英文切换，适合在个人介绍、项目展示和对外交流场景里自由切换语言，让网站更适合老师、同学、面试官和国际访问者浏览。",
+        "围绕自动化、计算机视觉与智能系统方向，我希望用一个更清晰的双语网站，把竞赛荣誉、科研经历、项目转化与工程能力完整呈现给老师、同学、面试官和国际访问者。",
       primaryCta: "查看项目",
       secondaryCta: "联系我",
     },
     profile: {
       title: "个人速览",
       highlights: [
-        "全国一等奖智能车竞赛项目经历",
-        "计算机视觉与自动化系统方向",
-        "科研展示、项目介绍与个人品牌整合",
+        "大一综测专业第一",
+        "全国大学生智能车竞赛国家级一等奖",
+        "累计获得国家级、省级、校级荣誉 20+ 项",
       ],
     },
     about: {
       eyebrow: "关于",
       title: "一个更适合对外展示的双语入口",
       body:
-        "相比只有单一语言的落地页，双语版本更适合用于简历投递、研究交流、比赛展示和海外浏览场景。当前实现已经把页面核心文案接入统一语言字典，后续继续扩展新模块时也能保持一致。",
+        "相比只停留在一句自我介绍的个人页，我更希望这个网站能系统呈现自己的学术能力、竞赛表现、工程经验和成长轨迹。双语版本让它更适合简历投递、研究交流、比赛展示和国际访问场景。",
     },
     education: {
       eyebrow: "教育",
@@ -54,14 +54,14 @@ const content = {
           title: "杭州电子科技大学",
           subtitle: "自动化专业，本科",
           body:
-            "聚焦自动化、智能系统、视觉感知与工程落地，在课程、竞赛和研究训练之间建立了较强的综合实践能力。",
+            "聚焦自动化、智能系统、视觉感知与工程落地，在课程、竞赛和研究训练之间形成了较强的综合能力，并取得大一综测专业第一。",
         },
         {
-          period: "重点方向",
-          title: "研究与工程兴趣",
-          subtitle: "视觉感知 / 智能决策 / 系统实现",
+          period: "学业亮点",
+          title: "奖学金与综合表现",
+          subtitle: "持续稳定的学业竞争力",
           body:
-            "关注将算法思路转化为可演示、可复现、可部署的系统，强调从问题定义到工程交付的一体化能力。",
+            "曾获 2 次校级一等奖学金、校级一等奖学金、省政府奖学金和校三好学生等奖励，也获得优秀团员等综合荣誉。",
         },
       ],
     },
@@ -71,15 +71,15 @@ const content = {
       cards: [
         {
           title: "竞赛成果",
-          body: "智能车相关竞赛经验可作为网站中的高价值展示内容，适合面向导师、评委和面试官进行快速说明。",
+          body: "在智能车、数学建模与 AI 等方向持续参赛，累计获得国家级、省级、校级荣誉 20+ 项，其中在第二十届全国大学生智能车竞赛中获得国家级一等奖。",
         },
         {
-          title: "技术栈",
-          body: "自动化、计算机视觉、深度学习、嵌入式系统与前端展示结合，让这个站点既能讲项目，也能展示工程表达能力。",
+          title: "科研与论文",
+          body: "围绕可迁移特征、深度学习与视觉任务开展科研训练，形成对相关问题的独立理解，并产出深度学习相关国际 EI 会议论文成果。",
         },
         {
-          title: "对外表达",
-          body: "双语切换、模块化结构和后续可扩展的项目详情页，可以支持更正式的英文介绍和学术交流场景。",
+          title: "项目转化",
+          body: "完成基于中医白睛眼像的颈动脉斑块智能诊断算法研究立项，并以负责人身份完成睿动轨迹全场景球类教练国家级大创项目立项。",
         },
       ],
       skills: {
@@ -89,7 +89,8 @@ const content = {
           "Automation Systems",
           "Embedded Prototyping",
           "Deep Learning",
-          "Technical Writing",
+          "Research Writing",
+          "Huawei AI Certification",
           "Frontend Presentation",
         ],
       },
@@ -144,23 +145,23 @@ const content = {
       eyebrow: "Launch Sequence",
       title: "Present intelligent systems, projects, and research in both Chinese and English.",
       description:
-        "This landing page now supports bilingual switching, making it easier to introduce your work to classmates, professors, interviewers, and international visitors without maintaining two separate sites.",
+        "Built around automation, computer vision, and intelligent systems, this bilingual site is meant to present my competition results, research work, project execution, and technical profile to professors, interviewers, collaborators, and international visitors.",
       primaryCta: "View Projects",
       secondaryCta: "Contact Me",
     },
     profile: {
       title: "Profile Snapshot",
       highlights: [
-        "National first-prize intelligent vehicle competition experience",
-        "Computer vision and automation systems focus",
-        "Unified space for research, projects, and personal presentation",
+        "Ranked first in major-level comprehensive evaluation in freshman year",
+        "National first prize in the National College Intelligent Vehicle Competition",
+        "More than 20 national, provincial, and university-level honors",
       ],
     },
     about: {
       eyebrow: "About",
       title: "A better bilingual front page for external presentation",
       body:
-        "Compared with a single-language landing page, this bilingual version is far more useful for applications, research communication, competitions, and international visitors. The main copy is now driven by one language dictionary, so future sections can stay consistent as the site grows.",
+        "Instead of a homepage that stops at a short self-introduction, I want this site to clearly communicate my academic performance, competition record, engineering experience, and research trajectory. The bilingual structure makes it more useful for applications, research communication, competitions, and international audiences.",
     },
     education: {
       eyebrow: "Education",
@@ -171,14 +172,14 @@ const content = {
           title: "Hangzhou Dianzi University",
           subtitle: "B.Eng. in Automation",
           body:
-            "Focused on automation, intelligent systems, visual perception, and applied engineering, with growing strength across coursework, competitions, and research-oriented practice.",
+            "Focused on automation, intelligent systems, visual perception, and applied engineering, with strong integration across coursework, competitions, and research practice. I ranked first in major-level comprehensive evaluation during freshman year.",
         },
         {
-          period: "Focus Areas",
-          title: "Research and engineering interests",
-          subtitle: "Vision / Decision-Making / System Delivery",
+          period: "Academic Highlights",
+          title: "Scholarships and overall performance",
+          subtitle: "Consistent academic competitiveness",
           body:
-            "Interested in turning algorithmic ideas into demo-ready, reproducible, and deployable systems, with emphasis on end-to-end execution from problem framing to implementation.",
+            "Awarded two university first-class scholarships, a provincial government scholarship, and the title of Outstanding Student, along with other honors such as Outstanding Youth League Member.",
         },
       ],
     },
@@ -188,15 +189,15 @@ const content = {
       cards: [
         {
           title: "Competition Work",
-          body: "Your intelligent-vehicle experience is strong portfolio material for quickly explaining impact to professors, reviewers, and interviewers.",
+          body: "I have consistently competed in intelligent vehicles, mathematical modeling, and AI-related activities, accumulating 20+ honors across national, provincial, and university levels, including a national first prize in the 20th National College Intelligent Vehicle Competition.",
         },
         {
-          title: "Technical Breadth",
-          body: "Automation, computer vision, deep learning, embedded systems, and frontend presentation together make this site useful for both technical depth and communication.",
+          title: "Research and Publication",
+          body: "My research training covers transferable features, deep learning, and visual intelligence tasks, leading to an independent understanding of the problem space and an international EI conference paper related to deep learning.",
         },
         {
-          title: "External Communication",
-          body: "Bilingual switching, modular sections, and future project detail pages support stronger English introductions and more polished academic or recruiting scenarios.",
+          title: "Project Conversion",
+          body: "I completed a project on intelligent diagnosis of carotid plaque based on scleral imagery in traditional Chinese medicine, and served as the person in charge for a national-level innovation and entrepreneurship project on a full-scene ball-sports coaching system.",
         },
       ],
       skills: {
@@ -206,7 +207,8 @@ const content = {
           "Automation Systems",
           "Embedded Prototyping",
           "Deep Learning",
-          "Technical Writing",
+          "Research Writing",
+          "Huawei AI Certification",
           "Frontend Presentation",
         ],
       },
