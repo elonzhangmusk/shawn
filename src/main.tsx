@@ -4,17 +4,87 @@ import "./styles.css";
 
 type Language = "zh" | "en";
 
-const content = {
+type Card = {
+  title: string;
+  body: string;
+  meta?: string;
+};
+
+type Copy = {
+  pageTitle: string;
+  brand: string;
+  name: string;
+  role: string;
+  intro: string;
+  note: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  nav: {
+    about: string;
+    education: string;
+    highlights: string;
+    projects: string;
+    contact: string;
+  };
+  languageSwitch: {
+    label: string;
+    zh: string;
+    en: string;
+  };
+  metrics: Array<{
+    value: string;
+    label: string;
+    detail: string;
+  }>;
+  about: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    bullets: string[];
+  };
+  education: {
+    eyebrow: string;
+    title: string;
+    cards: Card[];
+  };
+  highlights: {
+    eyebrow: string;
+    title: string;
+    cards: Card[];
+    skillsTitle: string;
+    skills: string[];
+  };
+  projects: {
+    eyebrow: string;
+    title: string;
+    cards: Card[];
+  };
+  contact: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    emailLabel: string;
+    phoneLabel: string;
+    email: string;
+    phone: string;
+  };
+};
+
+const content: Record<Language, Copy> = {
   zh: {
-    pageTitle: "张航宁 - 科幻风格个人展示网站",
-    brand: "科幻作品集",
+    pageTitle: "张航宁 - 编辑式个人作品集",
+    brand: "Shawn / 张航宁",
     name: "张航宁",
-    subtitle: "自动化专业学生，热爱工程实现、科研探索与系统设计。",
-    navLabel: "主导航",
+    role: "自动化专业学生 · 工程实现 · 研究表达 · 双语展示",
+    intro:
+      "我希望把竞赛、研究和项目经历放进一页清楚、有秩序、能让人快速理解的作品集中。这个版本把原本偏炫技的视觉，改成更克制、更有层次的编辑式主页。",
+    note: "适合老师、面试官、合作方和国际访客快速浏览。",
+    ctaPrimary: "查看项目",
+    ctaSecondary: "联系我",
     nav: {
       about: "关于",
       education: "教育",
-      achievements: "亮点",
+      highlights: "亮点",
       projects: "项目",
       contact: "联系",
     },
@@ -23,225 +93,257 @@ const content = {
       zh: "中文",
       en: "EN",
     },
-    hero: {
-      eyebrow: "启动序列",
-      title: "用中英双语展示智能系统、工程项目与研究经历。",
-      description:
-        "围绕自动化、计算机视觉与智能系统方向，我希望用一个更清晰的双语网站，把竞赛荣誉、科研经历、项目转化与工程能力完整呈现给老师、同学、面试官和国际访问者。",
-      primaryCta: "查看项目",
-      secondaryCta: "联系我",
-    },
-    profile: {
-      title: "个人速览",
-      highlights: [
-        "大一综测专业第一",
-        "全国大学生智能车竞赛国家级一等奖",
-        "累计获得国家级、省级、校级荣誉 20+ 项",
-      ],
-    },
+    metrics: [
+      {
+        value: "20+",
+        label: "荣誉奖项",
+        detail: "国家级、省级、校级累计成果",
+      },
+      {
+        value: "No.1",
+        label: "综合测评",
+        detail: "大一综合测评专业第一",
+      },
+      {
+        value: "1st",
+        label: "全国竞赛",
+        detail: "全国大学生智能车竞赛国家一等奖",
+      },
+      {
+        value: "ZH / EN",
+        label: "双语叙事",
+        detail: "面向中文与国际访客同步呈现",
+      },
+    ],
     about: {
       eyebrow: "关于",
-      title: "一个更适合对外展示的双语入口",
+      title: "不是堆信息，而是把经历讲清楚",
       body:
-        "相比只停留在一句自我介绍的个人页，我更希望这个网站能系统呈现自己的学术能力、竞赛表现、工程经验和成长轨迹。双语版本让它更适合简历投递、研究交流、比赛展示和国际访问场景。",
+        "这个主页不再依赖夸张的科幻元素，而是把个人信息组织成更容易阅读的结构：先讲定位，再讲教育和方向，接着展示亮点和项目，最后提供清晰的联系方式。内容仍然保持双语，适合正式介绍和持续更新。",
+      bullets: [
+        "工程实现优先于装饰性效果",
+        "用清楚的层级替代炫目的堆叠",
+        "保留双语切换与浏览连续性",
+      ],
     },
     education: {
       eyebrow: "教育",
-      title: "教育经历与研究方向",
-      items: [
+      title: "学习路径与研究方向",
+      cards: [
         {
-          period: "2022 - 至今",
           title: "杭州电子科技大学",
-          subtitle: "自动化专业，本科",
+          meta: "2022 - 至今 · 自动化本科",
           body:
-            "聚焦自动化、智能系统、视觉感知与工程落地，在课程、竞赛和研究训练之间形成了较强的综合能力，并取得大一综测专业第一。",
+            "关注自动化、智能系统、视觉感知与工程落地，在课程、竞赛与研究训练之间建立了比较完整的能力链路。",
         },
         {
-          period: "学业亮点",
-          title: "奖学金与综合表现",
-          subtitle: "持续稳定的学业竞争力",
+          title: "学业表现",
+          meta: "综合评价与奖学金",
           body:
-            "曾获 2 次校级一等奖学金、校级一等奖学金、省政府奖学金和校三好学生等奖励，也获得优秀团员等综合荣誉。",
+            "大一综合测评专业第一，获得两次校一等奖学金、省政府奖学金，以及优秀学生、优秀团员等荣誉。",
         },
       ],
     },
-    achievements: {
+    highlights: {
       eyebrow: "亮点",
       title: "能力标签与代表性成果",
       cards: [
         {
-          title: "竞赛成果",
-          body: "在智能车、数学建模与 AI 等方向持续参赛，累计获得国家级、省级、校级荣誉 20+ 项，其中在第二十届全国大学生智能车竞赛中获得国家级一等奖。",
+          title: "竞赛经历",
+          body:
+            "长期参与智能车、数学建模和 AI 相关竞赛，累计获得 20+ 项国家级、省级、校级荣誉，训练了完整的工程协作与交付能力。",
         },
         {
-          title: "科研与论文",
-          body: "围绕可迁移特征、深度学习与视觉任务开展科研训练，形成对相关问题的独立理解，并产出深度学习相关国际 EI 会议论文成果。",
+          title: "科研表达",
+          body:
+            "围绕可迁移特征、深度学习与视觉任务持续训练，形成了对问题空间的独立理解，并产出过 EI 会议论文成果。",
         },
         {
           title: "项目转化",
-          body: "完成基于中医白睛眼像的颈动脉斑块智能诊断算法研究立项，并以负责人身份完成睿动轨迹全场景球类教练国家级大创项目立项。",
+          body:
+            "完成过基于中医白眼图像的颈动脉斑块智能诊断研究，也负责过全景球类教练系统的国家级大创项目。",
         },
       ],
-      skills: {
-        title: "技能矩阵",
-        items: [
-          "Computer Vision",
-          "Automation Systems",
-          "Embedded Prototyping",
-          "Deep Learning",
-          "Research Writing",
-          "Huawei AI Certification",
-          "Frontend Presentation",
-        ],
-      },
+      skillsTitle: "技能矩阵",
+      skills: [
+        "Computer Vision",
+        "Automation Systems",
+        "Embedded Prototyping",
+        "Deep Learning",
+        "Research Writing",
+        "Frontend Presentation",
+        "Bilingual Storytelling",
+      ],
     },
     projects: {
       eyebrow: "项目",
-      title: "代表性项目",
-      items: [
+      title: "代表性工作",
+      cards: [
         {
           title: "智能车系统",
-          description:
-            "聚焦嵌入式感知、路径规划与控制协同，用于展示竞赛级自动驾驶实验和工程实现能力。",
+          body:
+            "围绕嵌入式感知、路径规划与控制协同展开，用于竞赛级自动驾驶实验与工程验证。",
         },
         {
           title: "医学影像研究",
-          description:
-            "面向多模态深度学习与影像分析任务，适合承载论文、实验结果和模型思路展示。",
+          body:
+            "面向多模态深度学习、图像分析与实验结果表达，强调研究过程的可解释性与展示质量。",
         },
         {
           title: "CAD 草图识别",
-          description:
-            "围绕工程图纸结构理解、约束推断与装配关系识别，体现算法与应用结合能力。",
+          body:
+            "聚焦工程图理解、约束推断与装配关系识别，体现算法与应用之间的结合能力。",
         },
       ],
     },
     contact: {
       eyebrow: "联系",
-      title: "接下来可以继续把更多模块接入双语",
+      title: "如果需要，我可以继续把它扩展成完整个人站",
       body:
-        "现在首页的主要文案已经支持中英文切换。下一步我们可以继续扩展教育经历、获奖、博客、简历下载、项目详情页，甚至做语言记忆功能，让访客下次打开时自动保持上一次选择。",
+        "下一步可以补充简历下载、项目详情页、奖项时间线、博客或更细的作品集模块，同时保留语言记忆，让回访者默认回到上次选择的语言。",
+      emailLabel: "邮箱",
+      phoneLabel: "电话",
+      email: "400136344@qq.com",
+      phone: "15957455889",
     },
   },
   en: {
-    pageTitle: "Zhang Hangning - Sci-Fi Portfolio",
-    brand: "Sci-Fi Portfolio",
+    pageTitle: "Zhang Hangning - Editorial Portfolio",
+    brand: "Shawn / Zhang Hangning",
     name: "Zhang Hangning",
-    subtitle: "Automation student focused on engineering, research, and intelligent systems.",
-    navLabel: "Primary",
+    role: "Automation student · Engineering delivery · Research communication · Bilingual presentation",
+    intro:
+      "I wanted a portfolio page that reads clearly in one pass. This version turns the earlier sci-fi styling into a restrained editorial homepage with stronger hierarchy and a calmer visual rhythm.",
+    note: "Built for teachers, interviewers, collaborators, and international visitors.",
+    ctaPrimary: "View Projects",
+    ctaSecondary: "Contact Me",
     nav: {
       about: "About",
       education: "Education",
-      achievements: "Highlights",
+      highlights: "Highlights",
       projects: "Projects",
       contact: "Contact",
     },
     languageSwitch: {
       label: "Language",
-      zh: "中",
+      zh: "中文",
       en: "EN",
     },
-    hero: {
-      eyebrow: "Launch Sequence",
-      title: "Present intelligent systems, projects, and research in both Chinese and English.",
-      description:
-        "Built around automation, computer vision, and intelligent systems, this bilingual site is meant to present my competition results, research work, project execution, and technical profile to professors, interviewers, collaborators, and international visitors.",
-      primaryCta: "View Projects",
-      secondaryCta: "Contact Me",
-    },
-    profile: {
-      title: "Profile Snapshot",
-      highlights: [
-        "Ranked first in major-level comprehensive evaluation in freshman year",
-        "National first prize in the National College Intelligent Vehicle Competition",
-        "More than 20 national, provincial, and university-level honors",
-      ],
-    },
+    metrics: [
+      {
+        value: "20+",
+        label: "Honors",
+        detail: "National, provincial, and university-level results",
+      },
+      {
+        value: "No.1",
+        label: "Major ranking",
+        detail: "First place in freshman-year comprehensive evaluation",
+      },
+      {
+        value: "1st",
+        label: "National contest",
+        detail: "National first prize in the smart vehicle competition",
+      },
+      {
+        value: "ZH / EN",
+        label: "Bilingual story",
+        detail: "A clear experience for local and international readers",
+      },
+    ],
     about: {
       eyebrow: "About",
-      title: "A better bilingual front page for external presentation",
+      title: "Less spectacle, more clarity",
       body:
-        "Instead of a homepage that stops at a short self-introduction, I want this site to clearly communicate my academic performance, competition record, engineering experience, and research trajectory. The bilingual structure makes it more useful for applications, research communication, competitions, and international audiences.",
+        "Instead of stacking flashy sci-fi visuals, this page organizes the profile around what matters most: who I am, what I study, what I have built, and how to get in touch. The bilingual structure makes the portfolio useful across applications, interviews, and ongoing updates.",
+      bullets: [
+        "Engineering-led rather than decoration-led",
+        "Clear hierarchy over visual noise",
+        "Bilingual navigation with persistent choice",
+      ],
     },
     education: {
       eyebrow: "Education",
-      title: "Education and research direction",
-      items: [
+      title: "Study path and research direction",
+      cards: [
         {
-          period: "2022 - Present",
           title: "Hangzhou Dianzi University",
-          subtitle: "B.Eng. in Automation",
+          meta: "2022 - Present · B.Eng. in Automation",
           body:
-            "Focused on automation, intelligent systems, visual perception, and applied engineering, with strong integration across coursework, competitions, and research practice. I ranked first in major-level comprehensive evaluation during freshman year.",
+            "Focused on automation, intelligent systems, visual perception, and real engineering delivery across coursework, competitions, and research training.",
         },
         {
-          period: "Academic Highlights",
-          title: "Scholarships and overall performance",
-          subtitle: "Consistent academic competitiveness",
+          title: "Academic performance",
+          meta: "Rankings and scholarships",
           body:
-            "Awarded two university first-class scholarships, a provincial government scholarship, and the title of Outstanding Student, along with other honors such as Outstanding Youth League Member.",
+            "First place in major-level comprehensive evaluation during freshman year, plus two first-class scholarships, a provincial government scholarship, and additional honors.",
         },
       ],
     },
-    achievements: {
+    highlights: {
       eyebrow: "Highlights",
-      title: "Core strengths and representative outcomes",
+      title: "Strengths and representative outcomes",
       cards: [
         {
-          title: "Competition Work",
-          body: "I have consistently competed in intelligent vehicles, mathematical modeling, and AI-related activities, accumulating 20+ honors across national, provincial, and university levels, including a national first prize in the 20th National College Intelligent Vehicle Competition.",
+          title: "Competition record",
+          body:
+            "Long-term participation in intelligent vehicles, mathematical modeling, and AI-related contests, resulting in 20+ honors and a practical understanding of team delivery.",
         },
         {
-          title: "Research and Publication",
-          body: "My research training covers transferable features, deep learning, and visual intelligence tasks, leading to an independent understanding of the problem space and an international EI conference paper related to deep learning.",
+          title: "Research communication",
+          body:
+            "Training around transferable features, deep learning, and visual tasks led to an independent view of the problem space and an EI conference paper outcome.",
         },
         {
-          title: "Project Conversion",
-          body: "I completed a project on intelligent diagnosis of carotid plaque based on scleral imagery in traditional Chinese medicine, and served as the person in charge for a national-level innovation and entrepreneurship project on a full-scene ball-sports coaching system.",
+          title: "Project conversion",
+          body:
+            "Completed research on intelligent carotid-plaque diagnosis from traditional Chinese medicine imagery and led a national innovation project on ball-sports coaching.",
         },
       ],
-      skills: {
-        title: "Skill Matrix",
-        items: [
-          "Computer Vision",
-          "Automation Systems",
-          "Embedded Prototyping",
-          "Deep Learning",
-          "Research Writing",
-          "Huawei AI Certification",
-          "Frontend Presentation",
-        ],
-      },
+      skillsTitle: "Skill matrix",
+      skills: [
+        "Computer Vision",
+        "Automation Systems",
+        "Embedded Prototyping",
+        "Deep Learning",
+        "Research Writing",
+        "Frontend Presentation",
+        "Bilingual Storytelling",
+      ],
     },
     projects: {
       eyebrow: "Projects",
-      title: "Featured Work",
-      items: [
+      title: "Representative work",
+      cards: [
         {
-          title: "Intelligent Vehicle System",
-          description:
-            "Focused on embedded perception, path planning, and control coordination for competition-grade autonomous driving experiments.",
+          title: "Intelligent vehicle system",
+          body:
+            "Built around embedded perception, path planning, and control coordination for competition-grade autonomous driving experiments.",
         },
         {
-          title: "Medical Imaging Research",
-          description:
-            "Designed for multimodal deep-learning workflows, image analysis, and communicating experimental results clearly.",
+          title: "Medical imaging research",
+          body:
+            "Designed for multimodal deep learning, image analysis, and clear presentation of research results and methods.",
         },
         {
-          title: "CAD Sketch Recognition",
-          description:
-            "Built around engineering drawing understanding, constraint inference, and assembly-aware geometric recognition.",
+          title: "CAD sketch recognition",
+          body:
+            "Focused on engineering drawing understanding, constraint inference, and assembly-aware geometric recognition.",
         },
       ],
     },
     contact: {
       eyebrow: "Contact",
-      title: "We can keep extending bilingual support from here",
+      title: "I can extend this into a fuller personal site when needed",
       body:
-        "The homepage now supports Chinese and English switching. Next, we can extend the same system to education history, awards, blog posts, resume downloads, project detail pages, and even language persistence so returning visitors keep their last choice automatically.",
+        "Next steps could include a resume download, project detail pages, a timeline of awards, or a blog section, while keeping language persistence so returning visitors keep their last choice.",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      email: "400136344@qq.com",
+      phone: "15957455889",
     },
   },
-} as const;
+};
 
 function getInitialLanguage(): Language {
   if (typeof window === "undefined") {
@@ -249,7 +351,6 @@ function getInitialLanguage(): Language {
   }
 
   const savedLanguage = window.localStorage.getItem("language");
-
   if (savedLanguage === "zh" || savedLanguage === "en") {
     return savedLanguage;
   }
@@ -257,28 +358,24 @@ function getInitialLanguage(): Language {
   return window.navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
 }
 
+function SectionHeader({
+  eyebrow,
+  title,
+}: {
+  eyebrow: string;
+  title: string;
+}) {
+  return (
+    <div className="section-head">
+      <p className="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+    </div>
+  );
+}
+
 function App() {
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
   const copy = content[language];
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      const loading = document.getElementById("loading");
-
-      if (!loading) {
-        return;
-      }
-
-      loading.style.opacity = "0";
-      loading.style.transition = "opacity 0.45s ease";
-
-      window.setTimeout(() => {
-        loading.style.display = "none";
-      }, 450);
-    }, 900);
-
-    return () => window.clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
@@ -287,38 +384,38 @@ function App() {
   }, [copy.pageTitle, language]);
 
   return (
-    <main className="page-shell">
-      <div className="particle-bg" />
-      <div className="starfield" />
+    <main className="page">
+      <div className="page__backdrop" aria-hidden="true" />
+      <div className="page__grid" aria-hidden="true" />
 
-      <header className="site-header">
-        <div>
+      <header className="topbar">
+        <div className="brand-block">
           <p className="eyebrow">{copy.brand}</p>
           <h1>{copy.name}</h1>
-          <p className="subtitle">{copy.subtitle}</p>
+          <p className="brand-role">{copy.role}</p>
         </div>
 
-        <div className="header-controls">
-          <nav className="nav-links" aria-label={copy.navLabel}>
+        <div className="topbar__meta">
+          <nav className="site-nav" aria-label={language === "zh" ? "主导航" : "Primary navigation"}>
             <a href="#about">{copy.nav.about}</a>
             <a href="#education">{copy.nav.education}</a>
-            <a href="#achievements">{copy.nav.achievements}</a>
+            <a href="#highlights">{copy.nav.highlights}</a>
             <a href="#projects">{copy.nav.projects}</a>
             <a href="#contact">{copy.nav.contact}</a>
           </nav>
 
           <div className="language-switch" aria-label={copy.languageSwitch.label}>
             <button
+              type="button"
               className={language === "zh" ? "language-chip active" : "language-chip"}
               onClick={() => setLanguage("zh")}
-              type="button"
             >
               {copy.languageSwitch.zh}
             </button>
             <button
+              type="button"
               className={language === "en" ? "language-chip active" : "language-chip"}
               onClick={() => setLanguage("en")}
-              type="button"
             >
               {copy.languageSwitch.en}
             </button>
@@ -327,78 +424,90 @@ function App() {
       </header>
 
       <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">{copy.hero.eyebrow}</p>
-          <h2>{copy.hero.title}</h2>
-          <p className="hero-text">{copy.hero.description}</p>
-          <div className="cta-row">
-            <a className="neon-button" href="#projects">
-              {copy.hero.primaryCta}
+        <div className="hero__copy">
+          <p className="eyebrow">{copy.about.eyebrow}</p>
+          <h2>{copy.about.title}</h2>
+          <p className="hero__text">{copy.intro}</p>
+          <p className="hero__note">{copy.note}</p>
+
+          <div className="hero__actions">
+            <a className="button button--solid" href="#projects">
+              {copy.ctaPrimary}
             </a>
-            <a className="ghost-button" href="#contact">
-              {copy.hero.secondaryCta}
+            <a className="button button--ghost" href="#contact">
+              {copy.ctaSecondary}
             </a>
           </div>
-        </div>
 
-        <aside className="scifi-card status-panel">
-          <div className="avatar-orb" />
-          <h3>{copy.profile.title}</h3>
-          <ul className="status-list">
-            {copy.profile.highlights.map((item) => (
+          <ul className="hero__bullets">
+            {copy.about.bullets.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
+        </div>
+
+        <aside className="hero__rail">
+          <div className="profile-card">
+            <div className="profile-card__mark" aria-hidden="true">
+              <span className="profile-card__ring" />
+              <span className="profile-card__core" />
+            </div>
+            <div className="profile-card__text">
+              <p className="profile-card__label">{copy.education.eyebrow}</p>
+              <h3>{copy.education.title}</h3>
+            </div>
+          </div>
+
+          <div className="metric-grid">
+            {copy.metrics.map((metric) => (
+              <article className="metric-card" key={metric.label}>
+                <p className="metric-card__value">{metric.value}</p>
+                <p className="metric-card__label">{metric.label}</p>
+                <p className="metric-card__detail">{metric.detail}</p>
+              </article>
+            ))}
+          </div>
         </aside>
       </section>
 
       <section className="section" id="about">
-        <div className="section-heading">
-          <p className="eyebrow">{copy.about.eyebrow}</p>
-          <h2>{copy.about.title}</h2>
-        </div>
-        <div className="scifi-card">
+        <SectionHeader eyebrow={copy.about.eyebrow} title={copy.about.title} />
+        <div className="content-slab">
           <p>{copy.about.body}</p>
         </div>
       </section>
 
       <section className="section" id="education">
-        <div className="section-heading">
-          <p className="eyebrow">{copy.education.eyebrow}</p>
-          <h2>{copy.education.title}</h2>
-        </div>
-        <div className="info-grid">
-          {copy.education.items.map((item) => (
-            <article className="scifi-card detail-card" key={item.title}>
-              <p className="detail-period">{item.period}</p>
-              <h3>{item.title}</h3>
-              <p className="detail-subtitle">{item.subtitle}</p>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="achievements">
-        <div className="section-heading">
-          <p className="eyebrow">{copy.achievements.eyebrow}</p>
-          <h2>{copy.achievements.title}</h2>
-        </div>
-        <div className="info-grid">
-          {copy.achievements.cards.map((card) => (
-            <article className="scifi-card detail-card" key={card.title}>
+        <SectionHeader eyebrow={copy.education.eyebrow} title={copy.education.title} />
+        <div className="card-grid card-grid--two">
+          {copy.education.cards.map((card) => (
+            <article className="glass-card" key={card.title}>
+              {card.meta ? <p className="card-meta">{card.meta}</p> : null}
               <h3>{card.title}</h3>
               <p>{card.body}</p>
             </article>
           ))}
         </div>
-        <div className="scifi-card skills-panel">
-          <div className="section-heading compact-heading">
-            <p className="eyebrow">{copy.achievements.eyebrow}</p>
-            <h2>{copy.achievements.skills.title}</h2>
+      </section>
+
+      <section className="section" id="highlights">
+        <SectionHeader eyebrow={copy.highlights.eyebrow} title={copy.highlights.title} />
+        <div className="card-grid card-grid--three">
+          {copy.highlights.cards.map((card) => (
+            <article className="glass-card" key={card.title}>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="glass-card skills-card">
+          <div className="skills-card__head">
+            <p className="eyebrow">{copy.highlights.eyebrow}</p>
+            <h3>{copy.highlights.skillsTitle}</h3>
           </div>
-          <div className="skills-cloud">
-            {copy.achievements.skills.items.map((skill) => (
+          <div className="pill-row">
+            {copy.highlights.skills.map((skill) => (
               <span className="skill-pill" key={skill}>
                 {skill}
               </span>
@@ -408,28 +517,32 @@ function App() {
       </section>
 
       <section className="section" id="projects">
-        <div className="section-heading">
-          <p className="eyebrow">{copy.projects.eyebrow}</p>
-          <h2>{copy.projects.title}</h2>
-        </div>
-        <div className="project-grid">
-          {copy.projects.items.map((project) => (
-            <article className="scifi-card project-card" key={project.title}>
-              <div className="project-badge" />
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+        <SectionHeader eyebrow={copy.projects.eyebrow} title={copy.projects.title} />
+        <div className="card-grid card-grid--three">
+          {copy.projects.cards.map((card, index) => (
+            <article className="project-card" key={card.title}>
+              <p className="project-card__index">0{index + 1}</p>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section" id="contact">
-        <div className="section-heading">
-          <p className="eyebrow">{copy.contact.eyebrow}</p>
-          <h2>{copy.contact.title}</h2>
-        </div>
-        <div className="scifi-card">
-          <p>{copy.contact.body}</p>
+      <section className="section section--contact" id="contact">
+        <SectionHeader eyebrow={copy.contact.eyebrow} title={copy.contact.title} />
+        <div className="contact-card">
+          <p className="contact-card__body">{copy.contact.body}</p>
+          <div className="contact-card__meta">
+            <div>
+              <span className="contact-label">{copy.contact.emailLabel}</span>
+              <a href={`mailto:${copy.contact.email}`}>{copy.contact.email}</a>
+            </div>
+            <div>
+              <span className="contact-label">{copy.contact.phoneLabel}</span>
+              <a href={`tel:${copy.contact.phone}`}>{copy.contact.phone}</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
